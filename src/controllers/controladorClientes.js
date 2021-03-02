@@ -17,10 +17,15 @@ controller.crearMenu=controller.list = (req, res) => {
   });
 };
 
-controller.save=(req,res)=>{
-console.log(req.body);
-res.send("works");
+controller.save = (req, res) => {
+  const data = req.body;
+  console.log(req.body)
+  req.getConnection((err, connection) => {
+    connection.query('INSERT INTO `usuarios` (`nombrePersonal`, `nombreUsuario`, `contraseña`, `direccion`, `tipoUsuario`, `telefono`, `email`) VALUES(?, ?, ?,?,?,?,?)', [data.nombrePersonal,data.nombreUsuario,data.contraseña,data.direccion,data.tipo,data.telefono,data.email], (err, customer) => {
+      console.log(customer)
+      res.redirect('/');
+    })
+  })
 };
-
 
   module.exports=controller;
