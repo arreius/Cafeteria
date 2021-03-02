@@ -1,0 +1,38 @@
+<%- include('partials/_header') %>
+
+<section class="page-section cta">
+  <div class="container">
+    <div class="col-xl-9 mx-auto">
+      <div class="cta-inner text-center rounded ">
+        <h1>   <span class="site-heading-lower">Lista de Productos</span></h1>
+        <hr>
+        <div class="row row-cols-1 row-cols-md-3 g-4 ">
+          <% if (data) { %>
+            <% for(var i = 0; i < data.length; i++) { 
+              var path="images/"+data[i].idCategoria+"menu.jpg"
+              %>
+            
+              <div class="col">
+                <div class="card border-0 bacground" >
+                  <img src="<%=path%>" class="card-img-top">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= data[i].nombreProducto%></h5>
+                    <span class="ml-auto">Precio Q.<%= data[i].precio%> </span> 
+                    <a class="btn btn-primary btn-x5" href="#">Añadir al carrito</a>
+                  </div>
+                </div>
+              </div>
+          
+          
+            <% } %>
+          <% } %>
+          </div>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+
+<%- include('partials/_footer') %>

@@ -1,0 +1,36 @@
+<%- include('partials/_header') %>
+<section class="page-section cta">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-9 mx-auto">
+        <div class="cta-inner text-center rounded">
+       <h1>   <span class="site-heading-lower">Registrate</span></h1>
+       <hr>
+       
+          <form action="/add" method="POST">
+            <div class="form-group">
+              <input type="text" class="form-control" name="nombreUsuarioRegistro"placeholder="Nombre">
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" name="emailUsaurioRegistro"placeholder="Email">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" name="passwordUsuarioRegistro" placeholder="Contraseña">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="direccionUsuarioRegistro" placeholder="Dirección">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="passwordUsuarioRegistro" placeholder="Telefóno">
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-x2" >Registrar</a>
+          </form>
+        
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<%- include('partials/_footer') %>
