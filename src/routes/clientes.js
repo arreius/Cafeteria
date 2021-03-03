@@ -16,6 +16,7 @@ router.get('/index', function(req, res, next) {
 });
 
 router.get("/menu", controladorCliente.crearMenu);
-router.post("/add", controladorCliente.save);
+router.post("/addUsuario", controladorCliente.guardarUsuarios);
+router.post("/addContacto", controladorCliente.guardarContacto);
 
 module.exports=router;

@@ -41,6 +41,7 @@
 <div class="container">
   <div class="modal fade" id="modalContacto"> 
     <div class="modal-dialog modal-dialog-centered">
+      
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="section-heading mb-1">
@@ -50,17 +51,20 @@
         </div>
         <div class="modal-body">
         <CENTER>
-          <form>
+          <form action="/addContacto" method="POST">
             <div class="form-group">
-              <input type="text" class="form-control" id="nombreContacto"placeholder="Nombre">
+              <input type="text" class="form-control" placeholder="Nombre" name="nombre">
             </div>
             <div class="form-group">
-              <input type="mail" class="form-control" id="mailContact" placeholder="Mail">
+              <input type="mail" class="form-control"  placeholder="Telefono" name="telefono">
             </div>
             <div class="form-group">
-              <textarea class="form-control" id="contactoMensaje" rows="3" placeholder="Mensaje"></textarea>
+              <input type="mail" class="form-control"  placeholder="Mail" name="mail">
             </div>
-            <a class="btn btn-primary btn-x2" href="#">Enviar</a>
+            <div class="form-group">
+              <textarea class="form-control"  rows="3" placeholder="Mensaje" name="mensaje"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-x2" >Enviar</a>
           </form>
     
         </CENTER>

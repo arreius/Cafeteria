@@ -10,6 +10,8 @@
           <% if (data) { %>
             <% for(var i = 0; i < data.length; i++) { 
               var path="images/"+data[i].idCategoria+"menu.jpg"
+              var num = data[i].precio;
+                  num = (Math.round(num * 100) / 100).toFixed(2)
               %>
             
               <div class="col">
@@ -17,7 +19,7 @@
                   <img src="<%=path%>" class="card-img-top">
                   <div class="card-body">
                     <h5 class="card-title"><%= data[i].nombreProducto%></h5>
-                    <span class="ml-auto">Precio Q.<%= data[i].precio%> </span> 
+                    <span class="ml-auto">Precio Q.<%=num%> </span> 
                     <a class="btn btn-primary btn-x5" href="#">Añadir al carrito</a>
                   </div>
                 </div>
