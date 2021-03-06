@@ -4,16 +4,23 @@
   <div class="container">
     <div class="col-xl-9 mx-auto">
       <div class="cta-inner text-center rounded ">
-        <h1>   <span class="site-heading-lower">Lista de Productos</span></h1>
+        <h1>   <span class="site-heading-lower">Lista de Productos </span></h1>
+        <hr>
+        <h3>Cafés </h3>
         <hr>
         <div class="row row-cols-1 row-cols-md-3 g-4 ">
-          <% if (data) { %>
+          <% if (data) { 
+           %>
+            
+           
             <% for(var i = 0; i < data.length; i++) { 
               var path="images/"+data[i].idCategoria+"menu.jpg"
               var num = data[i].precio;
                   num = (Math.round(num * 100) / 100).toFixed(2)
+              var categoria=data[i].idCategoria;    
+                  if(categoria==1){
               %>
-            
+           
               <div class="col">
                 <div class="card border-0 bacground" >
                   <img src="<%=path%>" class="card-img-top">
@@ -26,9 +33,155 @@
               </div>
           
           
-            <% } %>
+            <% }} %>
           <% } %>
           </div>
+          <hr>
+        <h3>Pasteles</h3>
+        <hr>
+        <div class="row row-cols-1 row-cols-md-3 g-4 ">
+          <% if (data) { %>
+           
+            <% for(var i = 0; i < data.length; i++) { 
+              var path="images/"+data[i].idCategoria+"menu.jpg"
+              var num = data[i].precio;
+                  num = (Math.round(num * 100) / 100).toFixed(2)
+              var categoria=data[i].idCategoria;    
+                  if(categoria==2){
+              %>
+           
+              <div class="col">
+                <div class="card border-0 bacground" >
+                  <img src="<%=path%>" class="card-img-top">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= data[i].nombreProducto%></h5>
+                    <span class="ml-auto">Precio Q.<%=num%> </span> 
+                    <a class="btn btn-primary btn-x5" href="#">Añadir al carrito</a>
+                  </div>
+                </div>
+              </div>
+          
+          
+            <% }} %>
+          <% } %>
+          </div>
+          <hr>
+        <h3>Bebidas Frias</h3>
+        <hr>
+        <div class="row row-cols-1 row-cols-md-3 g-4 ">
+          <% if (data) { %>
+           
+            <% for(var i = 0; i < data.length; i++) { 
+              var path="images/"+data[i].idCategoria+"menu.jpg"
+              var num = data[i].precio;
+                  num = (Math.round(num * 100) / 100).toFixed(2)
+              var categoria=data[i].idCategoria;    
+                  if(categoria==3){
+              %>
+           
+              <div class="col">
+                <div class="card border-0 bacground" >
+                  <img src="<%=path%>" class="card-img-top">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= data[i].nombreProducto%></h5>
+                    <span class="ml-auto">Precio Q.<%=num%> </span> 
+                    <a class="btn btn-primary btn-x5" href="#">Añadir al carrito</a>
+                  </div>
+                </div>
+              </div>
+          
+          
+            <% }} %>
+          <% } %>
+          </div>
+          <hr>
+        <h3>Bebidas Calientes</h3>
+        <hr>
+        <div class="row row-cols-1 row-cols-md-3 g-4 ">
+          <% if (data) { %>
+           
+            <% for(var i = 0; i < data.length; i++) { 
+              var path="images/"+data[i].idCategoria+"menu.jpg"
+              var num = data[i].precio;
+                  num = (Math.round(num * 100) / 100).toFixed(2)
+              var categoria=data[i].idCategoria;    
+                  if(categoria==4){
+              %>
+           
+              <div class="col">
+                <div class="card border-0 bacground" >
+                  <img src="<%=path%>" class="card-img-top">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= data[i].nombreProducto%></h5>
+                    <span class="ml-auto">Precio Q.<%=num%> </span> 
+                    <a class="btn btn-primary btn-x5" href="#">Añadir al carrito</a>
+                  </div>
+                </div>
+              </div>
+          
+          
+            <% }} %>
+          <% } %>
+          </div>
+          <hr>
+        <h3>Platos Fuertes</h3>
+        <hr>
+        <div class="row row-cols-1 row-cols-md-3 g-4 ">
+          <% if (data) { %>
+           
+            <% for(var i = 0; i < data.length; i++) { 
+              var path="images/"+data[i].idCategoria+"menu.jpg"
+              var num = data[i].precio;
+                  num = (Math.round(num * 100) / 100).toFixed(2)
+              var categoria=data[i].idCategoria;    
+                  if(categoria==5){
+              %>
+           
+              <div class="col">
+                <div class="card border-0 bacground" >
+                  <img src="<%=path%>" class="card-img-top">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= data[i].nombreProducto%></h5>
+                    <span class="ml-auto">Precio Q.<%=num%> </span> 
+                    <a class="btn btn-primary btn-x5" href="#">Añadir al carrito</a>
+                  </div>
+                </div>
+              </div>
+          
+          
+            <% }} %>
+          <% } %>
+          </div>
+          <hr>
+        <h3>Extras</h3>
+        <hr>
+        <div class="row row-cols-1 row-cols-md-3 g-4 ">
+          <% if (data) { %>
+           
+            <% for(var i = 0; i < data.length; i++) { 
+              var path="images/"+data[i].idCategoria+"menu.jpg"
+              var num = data[i].precio;
+                  num = (Math.round(num * 100) / 100).toFixed(2)
+              var categoria=data[i].idCategoria;    
+                  if(categoria==6){
+              %>
+           
+              <div class="col">
+                <div class="card border-0 bacground" >
+                  <img src="<%=path%>" class="card-img-top">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= data[i].nombreProducto%></h5>
+                    <span class="ml-auto">Precio Q.<%=num%> </span> 
+                    <a class="btn btn-primary btn-x5" href="#">Añadir al carrito</a>
+                  </div>
+                </div>
+              </div>
+          
+          
+            <% }} %>
+          <% } %>
+          </div>
+          
       </div>
     </div>
 

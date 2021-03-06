@@ -4,7 +4,9 @@ const app=express();
 const morgan=require("morgan");
 const mysql=require("mysql");
 const myConnection=require("express-myconnection");
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const session = require('express-session');
+  
 //importando rutas
 const rutasClientes=require("./routes/clientes");
 const { urlencoded } = require("express");
@@ -22,8 +24,13 @@ app.use(myConnection(mysql, {
   database:"cafeteriamarron",
 
 }, "single"));
+app.use(session({
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: true
+}));
 app.use(express.urlencoded({extended:true}))
-
+app.use(bodyParser.json());
 
 //routes
 app.use("/", rutasClientes);

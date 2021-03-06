@@ -4,19 +4,17 @@ const router= express.Router();
 const controladorCliente=require("../controllers/controladorClientes")
 router.get("/", controladorCliente.iniciar);
 
-router.get('/horario', function(req, res, next) {
-  res.render('horario');
-});
 
 router.get('/registro', function(req, res, next) {
   res.render('registro');
 });
-router.get('/index', function(req, res, next) {
-  res.render('index');
-});
+router.get('/index', controladorCliente.index);
+router.get('/horario', controladorCliente.horario);
+
+router.get("/logout", controladorCliente.logout);
 
 router.get("/menu", controladorCliente.crearMenu);
 router.post("/addUsuario", controladorCliente.guardarUsuarios);
 router.post("/addContacto", controladorCliente.guardarContacto);
-
+router.post("/login", controladorCliente.login);
 module.exports=router;
