@@ -17,4 +17,6 @@ router.get("/menu", controladorCliente.crearMenu);
 router.post("/addUsuario", controladorCliente.guardarUsuarios);
 router.post("/addContacto", controladorCliente.guardarContacto);
 router.post("/login", controladorCliente.login);
+router.post("/carrito",controladorCliente.carrito );
+
 module.exports=router;

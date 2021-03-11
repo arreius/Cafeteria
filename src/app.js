@@ -9,6 +9,9 @@ const session = require('express-session');
   
 //importando rutas
 const rutasClientes=require("./routes/clientes");
+const rutasControladores=require("./controllers/controladorClientes");
+const carrito=require("./public/scripts/producto");
+
 const { urlencoded } = require("express");
 //settings
 app.set("port",process.env.PORT||3000);
@@ -34,6 +37,7 @@ app.use(bodyParser.json());
 
 //routes
 app.use("/", rutasClientes);
+
 
 //archivos estaticos 
 app.use(express.static(path.join(__dirname,"public")));

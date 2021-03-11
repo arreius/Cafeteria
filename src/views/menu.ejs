@@ -2,14 +2,46 @@
 
 <section class="page-section cta">
   <div class="container">
+    
     <div class="col-xl-9 mx-auto">
+      <div class="cta-inner text-center rounded ">
+        <h1>   <span class="site-heading-lower">Carrito de Compras</span></h1>
+        <hr>
+        <div class="my-5">
+          <table class="table" >
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Acción</th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+            <tbody >
+
+            </tbody>
+            <tfoot>
+              <tr id="footer-carrito">
+                  <th scope="row" colspan="5">Carrito vacío</th>
+              </tr>
+            </tfoot>
+           
+          </table>
+        </div>
+
+      </div>
       <div class="cta-inner text-center rounded ">
         <h1>   <span class="site-heading-lower">Lista de Productos </span></h1>
         <hr>
         <h3>Cafés </h3>
         <hr>
         <div class="row row-cols-1 row-cols-md-3 g-4 ">
-          <% if (data) { 
+          <% 
+          
+          
+          if (data) { 
+            
            %>
             
            
@@ -25,15 +57,22 @@
                 <div class="card border-0 bacground" >
                   <img src="<%=path%>" class="card-img-top">
                   <div class="card-body">
-                    <h5 class="card-title"><%= data[i].nombreProducto%></h5>
+                 
+                    <h5 class="card-title" id="nombre"><%= data[i].nombreProducto%></h5>
                     <span class="ml-auto">Precio Q.<%=num%> </span> 
-                    <a class="btn btn-primary btn-x5" href="#">Añadir al carrito</a>
+                    <button  onclick="addRow('<%= data[i].idProducto%>','<%= data[i].nombreProducto%>','<%= data[i].precio%>');" class="btn btn-primary btn-x5 btn-add">
+                    
+                      Añadir al carrito
+                  </button>
+                   
                   </div>
                 </div>
               </div>
+
           
           
-            <% }} %>
+          
+            <%    }} %>
           <% } %>
           </div>
           <hr>
@@ -56,7 +95,9 @@
                   <div class="card-body">
                     <h5 class="card-title"><%= data[i].nombreProducto%></h5>
                     <span class="ml-auto">Precio Q.<%=num%> </span> 
-                    <a class="btn btn-primary btn-x5" href="#">Añadir al carrito</a>
+                    <button  onclick="addRow('<%= data[i].idProducto%>','<%= data[i].nombreProducto%>','<%= data[i].precio%>' );" class="btn btn-primary btn-x5 btn-add">
+                      Añadir al carrito
+                  </button>
                   </div>
                 </div>
               </div>
@@ -85,7 +126,9 @@
                   <div class="card-body">
                     <h5 class="card-title"><%= data[i].nombreProducto%></h5>
                     <span class="ml-auto">Precio Q.<%=num%> </span> 
-                    <a class="btn btn-primary btn-x5" href="#">Añadir al carrito</a>
+                    <button  onclick="addRow('<%= data[i].idProducto%>','<%= data[i].nombreProducto%>','<%= data[i].precio%>' );" class="btn btn-primary btn-x5 btn-add">
+                      Añadir al carrito
+                  </button>
                   </div>
                 </div>
               </div>
@@ -114,7 +157,9 @@
                   <div class="card-body">
                     <h5 class="card-title"><%= data[i].nombreProducto%></h5>
                     <span class="ml-auto">Precio Q.<%=num%> </span> 
-                    <a class="btn btn-primary btn-x5" href="#">Añadir al carrito</a>
+                    <button  onclick="addRow('<%= data[i].idProducto%>','<%= data[i].nombreProducto%>','<%= data[i].precio%>' );" class="btn btn-primary btn-x5 btn-add">
+                      Añadir al carrito
+                  </button>
                   </div>
                 </div>
               </div>
@@ -143,7 +188,9 @@
                   <div class="card-body">
                     <h5 class="card-title"><%= data[i].nombreProducto%></h5>
                     <span class="ml-auto">Precio Q.<%=num%> </span> 
-                    <a class="btn btn-primary btn-x5" href="#">Añadir al carrito</a>
+                    <button  onclick="addRow('<%= data[i].idProducto%>','<%= data[i].nombreProducto%>','<%= data[i].precio%>' );" class="btn btn-primary btn-x5 btn-add">
+                      Añadir al carrito
+                  </button>
                   </div>
                 </div>
               </div>
@@ -172,7 +219,9 @@
                   <div class="card-body">
                     <h5 class="card-title"><%= data[i].nombreProducto%></h5>
                     <span class="ml-auto">Precio Q.<%=num%> </span> 
-                    <a class="btn btn-primary btn-x5" href="#">Añadir al carrito</a>
+                    <button  onclick="addRow('<%= data[i].idProducto%>','<%= data[i].nombreProducto%>','<%= data[i].precio%>' );" class="btn btn-primary btn-x5 btn-add">
+                      Añadir al carrito
+                  </button>
                   </div>
                 </div>
               </div>
@@ -183,6 +232,7 @@
           </div>
           
       </div>
+  
     </div>
 
 
@@ -190,4 +240,8 @@
 </section>
 
 
+<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
 <%- include('partials/_footer') %>
