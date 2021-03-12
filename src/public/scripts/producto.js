@@ -89,9 +89,13 @@ function comprar(){
 var req =$.ajax({
   type: "POST",
   url:"/carrito",
+
   data:{ carrito: JSON.stringify(arregloCarrito)}, 
   
 });
+
+
+alert("Gracias por su compra, revise su factura creada!")
 
 
 
