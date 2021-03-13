@@ -15,8 +15,14 @@ router.get("/logout", controladorCliente.logout);
 
 router.get("/menu", controladorCliente.crearMenu);
 router.post("/addUsuario", controladorCliente.guardarUsuarios);
+router.post("/addCliente", controladorCliente.guardarCliente);
+router.post("/addPlatillo", controladorCliente.guardarPlatillo);
 router.post("/addContacto", controladorCliente.guardarContacto);
 router.post("/login", controladorCliente.login);
 router.post("/carrito",controladorCliente.carrito);
+
+router.get("/manejoUsuarios",controladorCliente.manejoUsuarios);
+router.get("/manejoProductos",controladorCliente.manejoProductos);
+router.get("/manejoPendientes",controladorCliente.manejoPendientes);
 
 module.exports=router;

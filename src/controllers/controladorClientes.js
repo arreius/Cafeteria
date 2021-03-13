@@ -1,5 +1,6 @@
 const controller ={};
 var usuario ={};
+var tipo ={};
 const pdf = require('html-pdf');
 const fs = require('fs');
 const { sign } = require('crypto');
@@ -14,8 +15,8 @@ controller.index=(req, res) => {
      res.render('index', {
    
         enLinea : true,
-        usaurio: req.session.usuario
-
+        usaurio: req.session.usuario,
+        tipo:tipo
      });
   
  
@@ -25,8 +26,8 @@ controller.horario=(req, res) => {
   res.render('horario', {
 
      enLinea : true,
-     usaurio: req.session.usuario
-
+     usaurio: req.session.usuario,
+     tipo:tipo
   });
 
 
@@ -42,7 +43,7 @@ controller.crearMenu=controller.list = (req, res) => {
        usr :usuario,
        data:productos,
         enLinea : true,
-       
+        tipo:tipo
 
      });
     });
@@ -62,6 +63,24 @@ controller.guardarUsuarios = (req, res) => {
     })
   })
 };
+controller.guardarCliente = (req, res) => {
+  const data = req.body;
+  req.getConnection((err, connection) => {
+    connection.query('INSERT INTO `usuarios` (`nombrePersonal`, `nombreUsuario`, `contraseña`, `direccion`, `tipoUsuario`, `telefono`, `email`) VALUES(?, ?, ?,?,?,?,?)', [data.nombrePersonal,data.nombreUsuario,data.contraseña,data.direccion,data.tipo,data.telefono,data.email], (err, customer) => {
+      
+ res.redirect("/manejoUsuarios");
+    })
+  })
+};
+controller.guardarPlatillo = (req, res) => {
+  const data = req.body;
+  req.getConnection((err, connection) => {
+    connection.query('INSERT INTO `producto` (`nombreProducto`, `descripcion`, `precio`, `stock`, `idCategoria`) VALUES(?, ?, ?,?,?)', [data.nombreProducto,data.descripcion,data.precio,data.stock,data.idCategoria], (err, customer) => {
+      
+ res.redirect("/manejoProductos");
+    })
+  })
+};
 
 controller.guardarContacto = (req, res) => {
   const data = req.body;
@@ -74,6 +93,7 @@ controller.guardarContacto = (req, res) => {
 
         enLinea : true,
         usaurio: req.session.usuario
+        
 
 });
     })
@@ -104,10 +124,13 @@ if(resultados.length>0){
   usuario= resultados[0].idUsuario;
   req.session.loggedin = true;
   req.session.usuario = resultados;
+  tipo= resultados[0].tipoUsuario;
    res.render("index",{
      idUsuario: resultados[0].idUsuario,
      enLinea : true,
-     usaurio: req.session.usuario
+     usaurio: req.session.usuario,
+     tipo:tipo
+
    });
  
 
@@ -219,6 +242,59 @@ function siguiente() {
   
   
 }
+
+
+controller.manejoUsuarios=(req, res) => {
+  req.getConnection((err, conn) => {
+    conn.query('SELECT * FROM usuarios', (err, usuarios) => {
+     if (err) {
+      res.json(err);
+     }
+     res.render('manejoUsuarios', {
+       usr :usuario,
+       data:usuarios,
+        enLinea : true,
+        tipo:tipo
+
+     });
+    });
+  });
+};
+controller.manejoProductos=(req, res) => {
+  req.getConnection((err, conn) => {
+    conn.query('SELECT * FROM producto', (err, productos) => {
+     if (err) {
+      res.json(err);
+     }
+     res.render('manejoProductos', {
+       usr :usuario,
+       data:productos,
+        enLinea : true,
+        tipo:tipo
+
+     });
+    });
+  });
+};
+controller.manejoPendientes=(req, res) => {
+  req.getConnection((err, conn) => {
+    conn.query('SELECT * FROM contacto', (err, pendiente) => {
+     if (err) {
+      res.json(err);
+     }
+     res.render('manejoPendientes', {
+       usr :usuario,
+       data:pendiente,
+        enLinea : true,
+        tipo:tipo,
+       
+     });
+    });
+  });
+};
+
+
+
 
 
   module.exports=controller;

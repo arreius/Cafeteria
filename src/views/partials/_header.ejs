@@ -35,7 +35,7 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav mx-auto">
       
-        <%if(locals.enLinea){%>
+        <%if(locals.enLinea&&locals.tipo=="Cliente"){%>
           <li class="nav-item active px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="/index">Principal
               <span class="sr-only">(current)</span>
@@ -48,10 +48,43 @@
           <a class="nav-link text-uppercase text-expanded" href="/horario">Horarios</a>
         </li>
         <li class="nav-item px-lg-4">
-          <a class="nav-link text-uppercase text-expanded" href="eventos.html">Eventos</a>
+          <a class="nav-link text-uppercase text-expanded" data-toggle="modal" data-target="#modalContacto"  role="button">Contáctanos</a>
         </li>
         <li class="nav-item px-lg-4">
-          <a class="nav-link text-uppercase text-expanded" data-toggle="modal" data-target="#modalContacto"  role="button">Contáctanos</a>
+          <a class="nav-link text-uppercase text-expanded" href="/logout">Salir</a>
+        </li>
+        <%}else if(locals.enLinea&&locals.tipo=="Master"){%>
+          <li class="nav-item active px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="/index">Principal
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+        <li class="nav-item px-lg-4">
+          <a class="nav-link text-uppercase text-expanded" href="/manejoUsuarios">Usuarios</a>
+        </li>
+        <li class="nav-item px-lg-4">
+          <a class="nav-link text-uppercase text-expanded" href="/manejoProductos">Productos</a>
+        </li>
+        <li class="nav-item px-lg-4">
+          <a class="nav-link text-uppercase text-expanded" href="/manejoPendientes">Pendientes</a>
+        </li>
+        <li class="nav-item px-lg-4">
+          <a class="nav-link text-uppercase text-expanded" href="/logout">Salir</a>
+        </li>
+        <%}else if(locals.enLinea&&locals.tipo=="Empleado"){%>
+          <li class="nav-item active px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="/index">Principal
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+        <li class="nav-item px-lg-4">
+          <a class="nav-link text-uppercase text-expanded" href="/menu">Perfil</a>
+        </li>
+        <li class="nav-item px-lg-4">
+          <a class="nav-link text-uppercase text-expanded" href="/horario">Productos</a>
+        </li>
+        <li class="nav-item px-lg-4">
+          <a class="nav-link text-uppercase text-expanded" data-toggle="modal" data-target="#modalContacto"  role="button">Pendientes</a>
         </li>
         <li class="nav-item px-lg-4">
           <a class="nav-link text-uppercase text-expanded" href="/logout">Salir</a>
