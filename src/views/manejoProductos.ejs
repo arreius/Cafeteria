@@ -32,8 +32,8 @@
                         <td><%= data[i].stock %></td>
                         <td><%= data[i].idCategoria %></td>
                         <td>
-                          <a href="/update/<%= data[i].id %>" class="btn btn-info">Editar</a>
-                          <a href="/delete/<%= data[i].id %>" class="btn btn-danger">Eliminar</a>
+                          <a href="/editarPlatillo/<%= data[i].idProducto %>" class="btn btn-info">Editar</a>
+                          <a href="/deleteProducto/<%= data[i].idProducto %>" class="btn btn-danger">Eliminar</a>
                         </td>
                       </tr>
                     <% } %>

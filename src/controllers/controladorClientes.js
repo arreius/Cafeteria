@@ -293,8 +293,104 @@ controller.manejoPendientes=(req, res) => {
   });
 };
 
+controller.updatePendiente= (req, res) => {
+  const { id } = req.params;
+  usr =usuario,
+  enLinea = true,
+  tipo=tipo,
+  req.getConnection((err, conn) => {
+    conn.query('UPDATE `contacto` SET `contactado`=? WHERE `contacto`.`idContacto`=?', [1, id], (err, rows) => {
+      res.redirect('/manejoPendientes');
+    });
+      
+  });
+}
 
 
+controller.deleteUsuario = (req, res) => {
+  const { id } = req.params;
+  usr =usuario,
+  enLinea = true,
+  tipo=tipo,
+  req.getConnection((err, conn) => {
+    conn.query('DELETE FROM usuarios WHERE idUsuario = ?', [id], (err, rows) => {
+      res.redirect('/manejoUsuarios');
+    });
+  });
+}
+controller.deleteProducto = (req, res) => {
+  const { id } = req.params;
+  usr =usuario,
+  enLinea = true,
+  tipo=tipo,
+  req.getConnection((err, conn) => {
+    conn.query('DELETE FROM producto WHERE idProducto = ?', [id], (err, rows) => {
+      res.redirect('/manejoProductos');
+    });
+  });
+}
+
+controller.editarCliente = (req, res) => {
+  const { id } = req.params;
+  usr =usuario,
+  enLinea = true,
+  tipo=tipo,
+  req.getConnection((err, conn) => {
+    conn.query("SELECT * FROM usuarios WHERE idUsuario = ?", [id], (err, rows) => {
+      res.render('eUsuario', {
+        data: rows[0],
+        usr :usuario,
+        enLinea : true,
+        tipo:tipo,
+      })
+    });
+  });
+};
+
+controller.editarPlatillo = (req, res) => {
+  const { id } = req.params;
+  usr =usuario,
+  enLinea = true,
+  tipo=tipo,
+  req.getConnection((err, conn) => {
+    conn.query("SELECT * FROM producto WHERE idProducto = ?", [id], (err, rows) => {
+      res.render('eProductos', {
+        data: rows[0],
+        usr :usuario,
+        enLinea : true,
+        tipo:tipo,
+      })
+    });
+  });
+};
+
+
+controller.updateProducto = (req, res) => {
+  const { id } = req.params;
+  const productoActualizado = req.body;
+  usr =usuario,
+  enLinea = true,
+  tipo=tipo,
+  req.getConnection((err, conn) => {
+
+  conn.query('UPDATE `producto` SET `nombreProducto`=?,`descripcion`=?,`precio`=?,`stock`=?,`idCategoria`=? WHERE `producto`.`idProducto` =?', [productoActualizado.nombreProducto,productoActualizado.descripcion,productoActualizado.precio,productoActualizado.stock,productoActualizado.idCategoria, id], (err, rows) => {
+    res.redirect('/manejoProductos');
+  });
+  });
+};
+controller.updateUsuario = (req, res) => {
+  const { id } = req.params;
+  const usuarioActualizado = req.body;
+  usr =usuario,
+  enLinea = true,
+  tipo=tipo,
+  req.getConnection((err, conn) => {
+
+  conn.query('UPDATE `usuarios` SET `nombrePersonal`=?,`nombreUsuario`=?,`contraseña`=?,`direccion`=?,`tipoUsuario`=?,`telefono`=?,`email`=? WHERE `usuarios`.`idUsuario`= ?', [usuarioActualizado.nombrePersonal,usuarioActualizado.nombreUsuario,usuarioActualizado.contraseña,usuarioActualizado.direccion,usuarioActualizado.tipo,usuarioActualizado.telefono,usuarioActualizado.email, id], (err, rows) => {
+    res.redirect('/manejoUsuarios');
+  });
+  });
+};
 
 
   module.exports=controller;

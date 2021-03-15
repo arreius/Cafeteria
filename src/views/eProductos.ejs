@@ -1,0 +1,49 @@
+<%- include('partials/_header') %>
+
+<section class="page-section cta">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-9 mx-auto">
+        <div class="cta-inner text-center rounded">
+          <div class="row">
+            <h1>   <span class="site-heading-lower">Editar Producto</span></h1>
+            <hr>
+           
+            
+              <div class="card-body">
+        
+                <form action="/editPlatillo/<%= data.idProducto %>" method="POST">
+                  <div class="form-group">
+                    <input type="text" name="nombreProducto" value="<%= data.nombreProducto%>" placeholder="Nombre Platillo" class="form-control" autofocus>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" name="descripcion" value="<%= data.descripcion%>" placeholder="Descripcion" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" name="precio" value="<%= data.precio%>" placeholder="Precio" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" name="stock" value="<%= data.stock%>" placeholder="Stock" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" name="idCategoria"  value="<%= data.idCategoria%>" placeholder="ID Categoria" class="form-control">
+                  </div>
+        
+                  <button type="submit" class="btn btn-primary">
+                    Editar Platillo
+                  </button>
+                </form>
+              </div>
+           
+            
+          
+          </div>
+                          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<%- include('partials/_footer') %>

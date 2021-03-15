@@ -1,0 +1,55 @@
+<%- include('partials/_header') %>
+
+<section class="page-section cta">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-9 mx-auto">
+        <div class="cta-inner text-center rounded">
+          <div class="row">
+            <h1>   <span class="site-heading-lower">Editar Usuario</span></h1>
+            <hr>
+           
+           
+              <div class="card-body">
+        
+                <form action="/editCliente/<%= data.idUsuario %>" method="POST">
+                  <div class="form-group">
+                    <input type="text" class="form-control" value="<%= data.nombrePersonal%>" name="nombrePersonal"placeholder="Nombre completo">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control"  value="<%= data.nombreUsuario%>" name="nombreUsuario"placeholder="Nombre Usuario">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control"  value="<%= data.contraseña%>" name="contraseña" placeholder="Contraseña">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" value="<%= data.direccion%>" name="direccion" placeholder="Dirección">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" value="<%= data.tipoUsuario%>" name="tipo" placeholder="Tipo">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" value="<%= data.telefono%>" name="telefono" placeholder="Telefóno">
+                  </div>
+                  <div class="form-group">
+                    <input type="email" class="form-control" value="<%= data.email%>" name="email" placeholder="eMail">
+                  </div>
+      
+                  <button type="submit" class="btn btn-primary">
+                    Editar Usuario
+                  </button>
+                </form>
+              </div>
+         
+            
+          
+          </div>
+                          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<%- include('partials/_footer') %>
