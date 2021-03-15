@@ -363,6 +363,22 @@ controller.editarPlatillo = (req, res) => {
     });
   });
 };
+controller.verFactura = (req, res) => {
+  const { id } = req.params;
+  usr =usuario,
+  enLinea = true,
+  tipo=tipo,
+  req.getConnection((err, conn) => {
+    conn.query("SELECT * FROM detalle WHERE numFactura=? ORDER BY idDetalle", [id], (err, rows) => {
+      res.render('verFactura', {
+        data: rows,
+        usr :usuario,
+        enLinea : true,
+        tipo:tipo,
+      })
+    });
+  });
+};
 
 
 controller.updateProducto = (req, res) => {
@@ -391,6 +407,21 @@ controller.updateUsuario = (req, res) => {
   });
   });
 };
+controller.listarFacturas=(req, res) => {
+  req.getConnection((err, conn) => {
+    conn.query('SELECT * FROM factura', (err, facturas) => {
+     if (err) {
+      res.json(err);
+     }
+     res.render('facturas', {
+       usr :usuario,
+       data:facturas,
+        enLinea : true,
+        tipo:tipo
 
+     });
+    });
+  });
+};
 
   module.exports=controller;

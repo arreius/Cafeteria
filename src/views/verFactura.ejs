@@ -1,0 +1,59 @@
+<%- include('partials/_header') %>
+
+<section class="page-section cta">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-9 mx-auto">
+        <div class="cta-inner text-center rounded">
+          <div class="row">
+            <h1>   <span class="site-heading-lower">Detalle de la factura</span></h1>
+            <hr>
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <td>ID</td>
+                    <td>ID Producto</td>
+                    <td>Cantidad</td>
+                    <td>Precio</td>
+                    <td>Sub Total</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% console.log(data); if (data) { %>
+                    
+                    <% var costoTotal=0.00; for(var i = 0; i < data.length; i++) {
+                      var precio = data[i].precio;
+                      var subTotal = data[i].precio*data[i].cantidad;
+                      costoTotal=costoTotal+(data[i].precio*data[i].cantidad);
+                      precio = (Math.round(precio * 100) / 100).toFixed(2);
+                      subTotal= (Math.round(subTotal * 100) / 100).toFixed(2);
+                      
+                      %>
+                      <tr>
+                        <td><%= data[i].idDetalle %></td>
+                        <td><%= data[i].idProducto %></td>
+                        <td><%= data[i].cantidad %></td>
+                        <td>Q.<%= precio %></td>
+                        <td>Q.<%= subTotal %></td>
+
+                      </tr>
+                    <% }  costoTotal=(Math.round(costoTotal * 100) / 100).toFixed(2); %>
+                    <tfoot>
+                      <tr id="footer-carrito">
+                          <th scope="row" colspan="5">Total de la Factura:  Q.<%= costoTotal %></th>
+                      </tr>
+                    </tfoot>
+                  <% } %>
+                </tbody>
+              </table>
+            
+          
+          </div>
+                          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/_footer') %>

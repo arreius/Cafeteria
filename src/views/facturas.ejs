@@ -1,0 +1,46 @@
+<%- include('partials/_header') %>
+
+<section class="page-section cta">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-9 mx-auto">
+        <div class="cta-inner text-center rounded">
+          <div class="row">
+            <h1>   <span class="site-heading-lower">Facturas</span></h1>
+            <hr>
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <td>ID</td>
+                    <td>Usuario</td>
+                    <td>Fecha</td>
+                    <td>Acción</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% if (data) { %>
+                    <% for(var i = 0; i < data.length; i++) { %>
+                      <tr>
+                        <td><%= data[i].idFactura %></td>
+                        <td><%= data[i].idUsuario %></td>
+                        <td><%= data[i].fechaCompra %></td>
+                        <td>
+                        <a href="/verFactura/<%=data[i].idFactura%>" class="btn btn-info">Ver detalle</a>
+
+                        </td>
+                      </tr>
+                    <% } %>
+                  <% } %>
+                </tbody>
+              </table>
+            
+          
+          </div>
+                          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/_footer') %>

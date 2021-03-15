@@ -24,7 +24,8 @@ router.post("/carrito",controladorCliente.carrito);
 router.get("/manejoUsuarios",controladorCliente.manejoUsuarios);
 router.get("/manejoProductos",controladorCliente.manejoProductos);
 router.get("/manejoPendientes",controladorCliente.manejoPendientes);
-
+router.get("/facturas",controladorCliente.listarFacturas);
+router.get('/verFactura/:id', controladorCliente.verFactura);
 router.get('/editarCliente/:id', controladorCliente.editarCliente);
 router.get('/editarPlatillo/:id', controladorCliente.editarPlatillo);
 router.get('/deleteUsuario/:id', controladorCliente.deleteUsuario);
