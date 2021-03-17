@@ -84,6 +84,9 @@ controller.guardarPlatillo = (req, res) => {
 
 controller.guardarContacto = (req, res) => {
   const data = req.body;
+  usr =usuario,
+  enLinea = true,
+  tipo=tipo,
   req.getConnection((err, connection) => {
     connection.query('INSERT INTO `contacto` (`nombreContacto`,`numeroContacto`, `mailContacto`, `mensajeContacto`, `contactado`) VALUES(?,?, ?, ?,?)', [data.nombre,data.telefono,data.mail,data.mensaje,0], (err, customer) => {
       
@@ -92,7 +95,10 @@ controller.guardarContacto = (req, res) => {
  {contactado : "Registrado de manera adecuada, ahora puede ingresar!",
 
         enLinea : true,
-        usaurio: req.session.usuario
+        usaurio: req.session.usuario,
+        usr :usuario,
+        enLinea : true,
+        tipo:tipo,
         
 
 });
