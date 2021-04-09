@@ -1,11 +1,13 @@
-$(document).ready(function() {             $('#loginModal').modal('show');
+$(document).ready(function () {
+  $("#loginModal").modal("show");
   $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-  })
+    $('[data-toggle="tooltip"]').tooltip();
+  });
 });
 
-$(document).ready(function() {             $('#modalContacto').modal('show');
+$(document).ready(function () {
+  $("#modalContacto").modal("show");
   $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-  })
+    $('[data-toggle="tooltip"]').tooltip();
+  });
 });

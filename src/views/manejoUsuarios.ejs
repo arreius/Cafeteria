@@ -4,11 +4,10 @@
     <div class="row">
       <div class="col-xl-20 mx-auto">
         <div class="cta-inner text-center rounded">
-          <h1>   <span class="site-heading-lower">Manejo de Usuarios</span></h1>
-          <hr>
+          <h1><span class="site-heading-lower">Manejo de Usuarios</span></h1>
+          <hr />
           <div class="row">
             <div class="col-md-7">
-           
               <table class="table table-bordered table-hover">
                 <thead>
                   <tr>
@@ -16,59 +15,99 @@
                     <td>Nombre</td>
                     <td>Usuario</td>
                     <td>Contraseña</td>
-                    
+
                     <td>Tipo</td>
-                    
+
                     <td>Acción</td>
                   </tr>
                 </thead>
                 <tbody>
-                  <% if (data) { %>
-                    <% for(var i = 0; i < data.length; i++) { %>
-                      <tr>
-                        <td><%= data[i].idUsuario %></td>
-                        <td><%= data[i].nombrePersonal %></td>
-                        <td><%= data[i].nombreUsuario %></td>
-                        <td><%= data[i].contraseña %></td>
-                        
-                        <td><%= data[i].tipoUsuario %></td>
-                        
-                        <td>
-                          <a  href="/editarCliente/<%= data[i].idUsuario %>" class="btn btn-info">Edit</a>
-                          <a href="/deleteUsuario/<%= data[i].idUsuario%>" class="btn btn-danger">Delete</a>
-                        </td>
-                      </tr>
-                    <% } %>
-                  <% } %>
+                  <% if (data) { %> <% for(var i = 0; i < data.length; i++) { %>
+                  <tr>
+                    <td><%= data[i].idUsuario %></td>
+                    <td><%= data[i].nombrePersonal %></td>
+                    <td><%= data[i].nombreUsuario %></td>
+                    <td><%= data[i].contraseña %></td>
+
+                    <td><%= data[i].tipoUsuario %></td>
+
+                    <td>
+                      <a
+                        href="/editarCliente/<%= data[i].idUsuario %>"
+                        class="btn btn-info"
+                        >Edit</a
+                      >
+                      <a
+                        href="/deleteUsuario/<%= data[i].idUsuario%>"
+                        class="btn btn-danger"
+                        >Delete</a
+                      >
+                    </td>
+                  </tr>
+                  <% } %> <% } %>
                 </tbody>
               </table>
             </div>
             <div class="col-md-5">
               <div class="card-body">
-        
                 <form action="/addCliente" method="POST">
                   <div class="form-group">
-                    <input type="text" class="form-control" name="nombrePersonal"placeholder="Nombre completo">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="nombrePersonal"
+                      placeholder="Nombre completo"
+                    />
                   </div>
                   <div class="form-group">
-                    <input type="text" class="form-control" name="nombreUsuario"placeholder="Nombre Usuario">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="nombreUsuario"
+                      placeholder="Nombre Usuario"
+                    />
                   </div>
                   <div class="form-group">
-                    <input type="password" class="form-control" name="contraseña" placeholder="Contraseña">
+                    <input
+                      type="password"
+                      class="form-control"
+                      name="contraseña"
+                      placeholder="Contraseña"
+                    />
                   </div>
                   <div class="form-group">
-                    <input type="text" class="form-control" name="direccion" placeholder="Dirección">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="direccion"
+                      placeholder="Dirección"
+                    />
                   </div>
                   <div class="form-group">
-                    <input type="text" class="form-control" name="tipo" placeholder="Tipo">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="tipo"
+                      placeholder="Tipo"
+                    />
                   </div>
                   <div class="form-group">
-                    <input type="text" class="form-control" name="telefono" placeholder="Telefóno">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="telefono"
+                      placeholder="Telefóno"
+                    />
                   </div>
                   <div class="form-group">
-                    <input type="email" class="form-control" name="email" placeholder="eMail">
+                    <input
+                      type="email"
+                      class="form-control"
+                      name="email"
+                      placeholder="eMail"
+                    />
                   </div>
-      
+
                   <button type="submit" class="btn btn-primary">
                     Guardar Cliente
                   </button>
@@ -76,7 +115,6 @@
               </div>
             </div>
           </div>
-                          
         </div>
       </div>
     </div>

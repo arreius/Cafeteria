@@ -5,45 +5,46 @@
       <div class="col-xl-9 mx-auto">
         <div class="cta-inner text-center rounded">
           <div class="row">
-            <h1>   <span class="site-heading-lower">Manejo de pendientes</span></h1>
-            <hr>
-              <table class="table table-bordered table-hover">
-                <thead>
-                  <tr>
-                    <td>ID</td>
-                    <td>Nombre</td>
-                    <td>Numero</td>
-                    <td>Mail</td>
-                    <td>Mensaje</td>
-                    <td>Acción</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <% if (data) { %>
-                    <% for(var i = 0; i < data.length; i++) { %>
-                      <tr>
-                        <td><%= data[i].idContacto %></td>
-                        <td><%= data[i].nombreContacto %></td>
-                        <td><%= data[i].numeroContacto %></td>
-                        <td><%= data[i].mailContacto %></td>
-                        <td><%= data[i].mensajeContacto %></td>
-                        <td>
-                          <%if(data[i].contactado){%>
-                            <a>Persona Contactada!</a>
-                          
-                          <%}else{%>
-                            <a href="/updatePendiente/<%= data[i].idContacto %>" class="btn btn-info">Contactado</a>
-                            <%}%>
-                        </td>
-                      </tr>
-                    <% } %>
-                  <% } %>
-                </tbody>
-              </table>
-            
-          
+            <h1>
+              <span class="site-heading-lower">Manejo de pendientes</span>
+            </h1>
+            <hr />
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <td>ID</td>
+                  <td>Nombre</td>
+                  <td>Numero</td>
+                  <td>Mail</td>
+                  <td>Mensaje</td>
+                  <td>Acción</td>
+                </tr>
+              </thead>
+              <tbody>
+                <% if (data) { %> <% for(var i = 0; i < data.length; i++) { %>
+                <tr>
+                  <td><%= data[i].idContacto %></td>
+                  <td><%= data[i].nombreContacto %></td>
+                  <td><%= data[i].numeroContacto %></td>
+                  <td><%= data[i].mailContacto %></td>
+                  <td><%= data[i].mensajeContacto %></td>
+                  <td>
+                    <%if(data[i].contactado){%>
+                    <a>Persona Contactada!</a>
+
+                    <%}else{%>
+                    <a
+                      href="/updatePendiente/<%= data[i].idContacto %>"
+                      class="btn btn-info"
+                      >Contactado</a
+                    >
+                    <%}%>
+                  </td>
+                </tr>
+                <% } %> <% } %>
+              </tbody>
+            </table>
           </div>
-                          
         </div>
       </div>
     </div>
